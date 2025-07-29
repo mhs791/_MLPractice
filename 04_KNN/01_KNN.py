@@ -4,10 +4,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, recall_score, precision_score
+
 df = pd.read_csv('diabetes.csv')
 x = df.drop('Outcome', axis=1)
 y = df['Outcome']
-
 x = np.array(x)
 y = np.array(y)
 
