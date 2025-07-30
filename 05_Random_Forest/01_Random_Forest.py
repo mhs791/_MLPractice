@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score , recall_score , precision_score , confusion_matrix
 
 df = pd.read_csv('diabetes.csv')
@@ -10,14 +10,12 @@ df = pd.read_csv('diabetes.csv')
 x = df.drop('Outcome', axis=1)
 y =df['Outcome']
 
-x = np.array(x)
-
 scaler = StandardScaler()
 x = scaler.fit_transform(x)
 
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2,random_state=42)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state = 42)
 
-model = DecisionTreeClassifier(max_depth=8, random_state = 42)
+model = RandomForestClassifier(n_estimators = 11, max_depth = 8, random_state = 42)
 model.fit(x_train ,y_train)
 y_pred_train = model.predict(x_train)
 y_pred_test = model.predict(x_test)
