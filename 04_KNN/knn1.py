@@ -5,11 +5,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, recall_score, precision_score
 
-df = pd.read_csv('diabetes.csv')
+df = pd.read_csv('../Datasets/diabetes.csv')
 x = df.drop('Outcome', axis=1)
 y = df['Outcome']
-x = np.array(x)
-y = np.array(y)
 
 scaler = StandardScaler()
 x = scaler.fit_transform(x)
@@ -21,14 +19,14 @@ y_pred_test = model.predict(x_test)
 y_pred_train = model.predict(x_train)
 
 accuracy_test = accuracy_score(y_test, y_pred_test)
-accurancy_train = accuracy_score(y_train, y_pred_train)
+accuracy_train = accuracy_score(y_train, y_pred_train)
 print(f'Test Accuracy: {accuracy_test * 100:.2f}%')
-print(f'Train Accuracy: {accurancy_train * 100:.2f}%')
+print(f'Train Accuracy: {accuracy_train * 100:.2f}%')
 
-cunf_matrix_test = confusion_matrix(y_test, y_pred_test)
-cunf_matrix_train = confusion_matrix(y_train, y_pred_train)
-print(f'Test Confusion Matrix:\n{cunf_matrix_test}')
-print(f'Train Confusion Matrix:\n{cunf_matrix_train}')
+conf_matrix_test = confusion_matrix(y_test, y_pred_test)
+conf_matrix_train = confusion_matrix(y_train, y_pred_train)
+print(f'Test Confusion Matrix:\n{conf_matrix_test}')
+print(f'Train Confusion Matrix:\n{conf_matrix_train}')
 
 recall_test = recall_score(y_test, y_pred_test)
 recall_train = recall_score(y_train, y_pred_train)

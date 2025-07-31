@@ -5,13 +5,10 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score
 
-df = pd.read_csv('diabetes.csv')
+df = pd.read_csv('../Datasets/diabetes.csv')
 
 x = df.drop('Outcome', axis=1)
 y = df['Outcome']
-
-x = np.array(x)
-y = np.array(y)
 
 scaler = StandardScaler()
 x = scaler.fit_transform(x)

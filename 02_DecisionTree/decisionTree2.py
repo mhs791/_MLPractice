@@ -5,12 +5,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score , recall_score , precision_score , confusion_matrix
 
-df = pd.read_csv('diabetes.csv')
+df = pd.read_csv('../Datasets/diabetes.csv')
 
 x = df.drop('Outcome', axis=1)
 y =df['Outcome']
-
-x = np.array(x)
 
 scaler = StandardScaler()
 x = scaler.fit_transform(x)
