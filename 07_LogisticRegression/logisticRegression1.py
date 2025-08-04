@@ -41,5 +41,5 @@ print(
     f'\nr_test:{r_test*100:.2f}%',
     f'\nr_train:{r_train*100:.2f}%',
     f'\nconf_test:\n{conf_test}',
-    f'\nconf_train:\n{conf_train}',
+    f'\nconf_train:\n{conf_train}'
 )
